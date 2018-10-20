@@ -27,7 +27,7 @@ def webhook():
     # endpoint for processing incoming messaging events
 
     data = request.get_json()
-    return log(data)  # you may not want to log every incoming message in production, but it's good for testing
+    return data  # you may not want to log every incoming message in production, but it's good for testing
     
 
 #    if data["object"] == "page":
@@ -79,16 +79,16 @@ def webhook():
 #        log(r.text)
 
 
-def log(msg, *args, **kwargs):  # simple wrapper for logging to stdout on heroku
-    try:
-        if type(msg) is dict:
-            msg = json.dumps(msg)
-        else:
-            msg = unicode(msg).format(*args, **kwargs)
-        print u"{}: {}".format(datetime.now(), msg)
-    except UnicodeEncodeError:
-        pass  # squash logging errors in case of non-ascii text
-    sys.stdout.flush()
+#def log(msg, *args, **kwargs):  # simple wrapper for logging to stdout on heroku
+#    try:
+#        if type(msg) is dict:
+#            msg = json.dumps(msg)
+#        else:
+#            msg = unicode(msg).format(*args, **kwargs)
+#        print u"{}: {}".format(datetime.now(), msg)
+#    except UnicodeEncodeError:
+#        pass  # squash logging errors in case of non-ascii text
+#    sys.stdout.flush()
 
 
 if __name__ == '__main__':
