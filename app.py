@@ -41,12 +41,12 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
                     
-                    if 'btcb' != message_text:
-                        send_message(sender_id, "Ok")
+                    #if 'btcb' != message_text:
+                        #send_message(sender_id, "Ok")
                     if message_text in message_text:
                         send_message(sender_id, get_p(message_text))
                     else:
-                        send_message(sender_id, "BTC 20.000!")
+                        send_message(sender_id, "Medeelel oldsongui")
                             
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
