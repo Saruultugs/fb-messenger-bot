@@ -87,9 +87,9 @@ def send_message(recipient_id, message_text):
 def log(msg, *args, **kwargs):
     if type(msg) is dict:
         msg = json.dumps(msg)
-        else:
-            msg = msg.format(*args, **kwargs)
-            print "{}: {}".format(datetime.now(), msg)
+    else:
+        msg = msg.format(*args, **kwargs)
+        print "{}: {}".format(datetime.now(), msg)
             
 
 if __name__ == '__main__':
