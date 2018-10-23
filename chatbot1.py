@@ -20,7 +20,7 @@ def get_p(message_text):
     b = getlist['data']
     try:
         for i in b:
-            if i['symbol'] == text:
+            if i['symbol'] or i['name'] == text:
                 a = i['id']
 
         url = 'https://api.coinmarketcap.com/v2/ticker/{}/?convert=BTC'
@@ -67,7 +67,7 @@ def get_p(message_text):
         return brief
             
     except:
-        return 'Tiim zoos baidag yumuu> '
+        return 'Tiim zoosnii medeelel oldsongui ee sorry '
         #else:
             #return 'Kod Buruu'
 #print(get_p('hoT'))
