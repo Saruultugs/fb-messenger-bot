@@ -13,8 +13,8 @@ if resp != []:
 else:
     mnt = 2000
 
-def get_p(text):
-    text = text.replace('/p ','').upper()
+def get_p(message_text):
+    text = message_text.replace('/p ','').upper()
     listing = 'https://api.coinmarketcap.com/v2/listings/'
     getlist = requests.get(listing).json()
     b = getlist['data']
