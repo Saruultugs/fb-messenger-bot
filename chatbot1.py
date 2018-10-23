@@ -22,6 +22,10 @@ def get_p(message_text):
         for i in b:
             if i['symbol'] or i['name'] == text:
                 a = i['id']
+            else:
+                text = text.capitalize()
+                if i['name'] == text:
+                    a = i['id']
 
         url = 'https://api.coinmarketcap.com/v2/ticker/{}/?convert=BTC'
         tick = requests.get(url.format(a)).json()
