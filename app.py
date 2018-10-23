@@ -89,7 +89,7 @@ def log(msg, *args, **kwargs):
         msg = json.dumps(msg)
         else:
             msg = msg.format(*args, **kwargs)
-            print u"{}: {}".format(datetime.now(), msg)
+            print "{}: {}".format(datetime.now(), msg)
             
 
 if __name__ == '__main__':
