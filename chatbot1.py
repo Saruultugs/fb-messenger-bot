@@ -21,7 +21,7 @@ def get_p(message_text):
     b = getlist['data']
     try:
         for i in b:
-            text = message_text.capitalize()
+            text = message_text.title()
             if i['name'] == text:
                 a = i['id']
             else:
