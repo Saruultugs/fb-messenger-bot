@@ -15,18 +15,18 @@ else:
     mnt = 2000
 
 def get_p(message_text):
-    text = message_text.upper()
+    #text = message_text.upper()
     listing = 'https://api.coinmarketcap.com/v2/listings/'
     getlist = requests.get(listing).json()
     b = getlist['data']
     try:
         for i in b:
-            if i['symbol'] == text:
+            text = message_text.capitalize()
+            if i['name'] == text:
                 a = i['id']
             else:
-                text = text.lower()
-                text = text.capitalize()
-                if i['name'] == text:
+                text = text.upper()
+                if i['symbol'] == text:
                     a = i['id']
                     
         url = 'https://api.coinmarketcap.com/v2/ticker/{}/?convert=BTC'
