@@ -15,7 +15,7 @@ else:
     mnt = 2000
 
 def get_p(message_text):
-    text = message_text.replace('/p ','').upper()
+    text = message_text.upper()
     listing = 'https://api.coinmarketcap.com/v2/listings/'
     getlist = requests.get(listing).json()
     b = getlist['data']
