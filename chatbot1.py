@@ -69,5 +69,5 @@ def get_p(message_text):
     except:
         return 'Tiim zoos baidag yumuu> '
         #else:
-            #r#eturn 'Код буруу бна'
+            #return 'Kod Buruu'
 #print(get_p('hoT'))
