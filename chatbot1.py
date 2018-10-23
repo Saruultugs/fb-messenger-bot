@@ -24,7 +24,8 @@ def get_p(message_text):
             if i['symbol'] == text:
                 a = i['id']
             else:
-                text = text.lower().capitalize()
+                text = text.lower()
+                text = text.capitalize()
                 if i['name'] == text:
                     a = i['id']
                     
