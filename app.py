@@ -2,6 +2,7 @@ import os
 import sys
 import json
 from datetime import datetime
+from chatbot1 import get_p
 
 import requests
 from flask import Flask, request
@@ -18,17 +19,16 @@ def verify():
             return "Verification token mismatch", 403
         return request.args["hub.challenge"], 200
 
-    return "Hello Mongolia", 200
+    return "Hello world", 200
 
 
 @app.route('/', methods=['POST'])
 def webhook():
 
-    # endpoint for processing incoming messaging eventsa
+    # endpoint for processing incoming messaging events
 
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
-    
 
     if data["object"] == "page":
 
@@ -40,9 +40,14 @@ def webhook():
                     sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
-
-                    send_message(sender_id, "roger that!")
-
+                    
+                    if 'btcb' != message_text:
+                        send_message(sender_id, "Ok")
+                    if message_text in message_text:
+                        send_message(sender_id, get_p(message_text))
+                    else:
+                        send_message(sender_id, "BTC 20.000!")
+                            
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
 
