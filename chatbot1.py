@@ -27,13 +27,13 @@ def change(num):
         return str('+'+ str(num))
     
 def get_p(message_text):
-    text = message_text.upper()
-    if message_text == 'ONECOIN':
+    text2 = message_text.upper()
+    if text2 == 'ONECOIN':
 	return 'Ичээч'
-    if message_text == 'UUU':
+    if text2 == 'UUU':
 	return 'LOL'
     #text = message_text.upper()
-	text = message_text.lower()
+    #text = message_text.lower()
 
     listing = 'https://api.coinmarketcap.com/v2/listings/'
     getlist = requests.get(listing).json()
