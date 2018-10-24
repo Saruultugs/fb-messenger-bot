@@ -91,6 +91,7 @@ def get_p(message_text):
         if response != []:
             price = response[0]['rate_float']
             name = response[0]['name']
+	    name.decode('utf-8')
             st = '{}: '.format(name) + str(price) + ' ₮'
             return st
         else:
