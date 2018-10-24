@@ -18,7 +18,8 @@ def number(num):
     if num < 0.01:
         return str('%.8f' % num)
     else:
-        return str('%.2f' % num)
+        num = '{:,.2f}'.format(num)
+		return num
     
 def get_p(message_text):
     #text = message_text.upper()
