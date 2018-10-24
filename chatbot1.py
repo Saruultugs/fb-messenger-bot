@@ -86,6 +86,7 @@ def get_p(message_text):
             
     except:
         r = text.upper()
+	r = r.encode('utf-8')
         hansh = "http://monxansh.appspot.com/xansh.json?currency={}"
         response = requests.get(hansh.format(r)).json()
         if response != []:
