@@ -31,35 +31,33 @@ def webhook():
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
     if data["object"] == "page":
+        try:
+            for entry in data["entry"]:
+                for messaging_event in entry["messaging"]:
 
-        for entry in data["entry"]:
-            for messaging_event in entry["messaging"]:
+                    if messaging_event.get("message"):  # someone sent us a message
 
-                if messaging_event.get("message"):  # someone sent us a message
-
-                    sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
-                    recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
-                    
-                    if not messaging_event["message"]["text"]:
-                        return 'Kod buruu bna!'
-                    else:
+                        sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
+                        recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                         message_text = messaging_event["message"]["text"]  # the message's text
-                    
-                    #if 'btcb' != message_text:
-                        #send_message(sender_id, "Ok")
-                    if message_text in message_text:
-                        send_message(sender_id, get_p(message_text))
-                    else:
-                        send_message(sender_id, "Medeelel oldsongui")
-                            
-                if messaging_event.get("delivery"):  # delivery confirmation
-                    pass
 
-                if messaging_event.get("optin"):  # optin confirmation
-                    pass
+                        #if 'btcb' != message_text:
+                            #send_message(sender_id, "Ok")
+                        if message_text in message_text:
+                            send_message(sender_id, get_p(message_text))
+                        else:
+                            send_message(sender_id, "Medeelel oldsongui")
 
-                if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
-                    pass
+                    if messaging_event.get("delivery"):  # delivery confirmation
+                        pass
+
+                    if messaging_event.get("optin"):  # optin confirmation
+                        pass
+
+                    if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
+                        pass
+         except:
+            return '?'
 
     return "ok", 200
 
