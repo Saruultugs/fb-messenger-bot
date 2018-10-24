@@ -91,7 +91,7 @@ def get_p(message_text):
         if response != []:
             price = response[0]['rate_float']
             name = response[0]['name']
-            st = '{}: '.format(name) + str(price) + ' ₮'
+            st = u'{}: '.format(name) + str(price) + ' ₮'
             return st
         else:
             return 'Тийм зоос байдаг юм уу? '
