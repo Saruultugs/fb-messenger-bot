@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 import requests
 import json
 import urllib
@@ -81,7 +81,7 @@ def get_p(message_text):
             percent_change_7d = ether['data']['quotes']['ETH']['percent_change_7d']
 
             #mnt = 2567
-        brief = '*usd:* ' + '{}'.format(number(usd)) + '\n' + '*btc:* ' + '{}'.format(number(btc)) + '\n' + '*eth:* ' + '{}'.format(number(eth)) + '\n' + u'*төг:* ' + '{}'.format(number(usd*mnt))+ u' ₮'  + '\n'  + u'*24 цагт:* ' + '{}'.format(change(u_percent_change_24h)) + u'%'
+        brief = '*usd:* ' + '{}'.format(number(usd)) + '\n' + '*btc:* ' + '{}'.format(number(btc)) + '\n' + '*eth:* ' + '{}'.format(number(eth)) + '\n' + '*төг:* ' + '{}'.format(number(usd*mnt))+ ' ₮'  + '\n'  + '*24 цагт:* ' + '{}'.format(change(u_percent_change_24h)) + '%'
         return brief
             
     except:
@@ -91,10 +91,10 @@ def get_p(message_text):
         if response != []:
             price = response[0]['rate_float']
             name = response[0]['name']
-            st = u'{}: '.format(name) + str(price) + u' ₮'
+            st = '{}: '.format(name) + str(price) + ' ₮'
             return st
         else:
-            return u'Тийм зоос байдаг юм уу? '
+            return 'Тийм зоос байдаг юм уу? '
         #else:
             #return 'Kod Buruu'
 #print(get_p('hoT'))
