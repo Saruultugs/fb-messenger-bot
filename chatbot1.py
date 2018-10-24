@@ -19,7 +19,7 @@ def number(num):
         return str('%.8f' % num)
     else:
         num = '{:,.2f}'.format(num)
-		return num
+	return num
     
 def get_p(message_text):
     #text = message_text.upper()
