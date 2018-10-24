@@ -85,7 +85,16 @@ def get_p(message_text):
         return brief
             
     except:
-        return 'Tiim zoosnii medeelel oldsongui ee sorry '
+        r = text.upper()
+        hansh = "http://monxansh.appspot.com/xansh.json?currency={}"
+        response = requests.get(hansh.format(r)).json()
+        if response != []:
+            price = response[0]['rate_float']
+            name = response[0]['name']
+            st = '{}: '.format(name) + str(price) + " ₮"
+            return st
+        else:
+            return 'Тийм зоос байдаг юм уу? '
         #else:
             #return 'Kod Buruu'
 #print(get_p('hoT'))
