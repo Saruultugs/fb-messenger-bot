@@ -81,7 +81,7 @@ def get_p(message_text):
             percent_change_7d = ether['data']['quotes']['ETH']['percent_change_7d']
 
             #mnt = 2567
-        brief = '*usd:* ' + '{}'.format(number(usd)) + '\n' + '*btc:* ' + '{}'.format(number(btc)) + '\n' + '*eth:* ' + '{}'.format(number(eth)) + '\n' + u'*төг:* ' + '{}'.format(number(usd*mnt))+ u' ₮'  + '\n'  + u'*24 цагт:* ' + '{}'.format(change(u_percent_change_24h)) + '%'
+        brief = '*usd:* ' + '{}'.format(number(usd)) + '\n' + '*btc:* ' + '{}'.format(number(btc)) + '\n' + '*eth:* ' + '{}'.format(number(eth)) + '\n' + u'*төг:* ' + '{}'.format(number(usd*mnt))+ u' ₮'  + '\n'  + u'*24 цагт:* ' + '{}'.format(change(u_percent_change_24h)) + u'%'
         return brief
             
     except:
