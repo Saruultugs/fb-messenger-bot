@@ -14,6 +14,12 @@ if resp != []:
 else:
     mnt = 2000
 
+def number(num):
+    if num < 0.01:
+        return str('%.8f' % num)
+    else:
+        return str('%.2f' % num)
+    
 def get_p(message_text):
     #text = message_text.upper()
     listing = 'https://api.coinmarketcap.com/v2/listings/'
@@ -69,7 +75,7 @@ def get_p(message_text):
             percent_change_7d = ether['data']['quotes']['ETH']['percent_change_7d']
 
             #mnt = 2567
-        brief = 'usd: ' + str('%.8f' % usd) + '\n' + 'btc: ' + str('%.8f' % btc) + '\n' + 'eth: ' + str('%.8f' % eth) + '\n' + 'mnt: ' + str('%.2f' %(usd*mnt))+ ' ₮'  + '\n'  + '24 цагт:  ' + str(u_percent_change_24h) + '%'
+        brief = 'usd: ' + '{}'.format(number(usd)) + '\n' + 'btc: ' + '{}'.format(number(btc)) + '\n' + 'eth: ' + '{}'.format(number(eth)) + '\n' + 'mnt: ' + str('%.2f' %(usd*mnt))+ ' ₮'  + '\n'  + '24 цагт:  ' + str(u_percent_change_24h) + '%'
         return brief
             
     except:
