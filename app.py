@@ -56,7 +56,7 @@ def webhook():
 
                     if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
                         pass
-         except:
+        except:
             return '?'
 
     return "ok", 200
