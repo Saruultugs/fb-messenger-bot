@@ -3,6 +3,7 @@ import sys
 import json
 from datetime import datetime
 from chatbot1 import get_p
+from mse import get_adu
 
 import requests
 from flask import Flask, request
@@ -45,6 +46,8 @@ def webhook():
                             #send_message(sender_id, "Ok")
                         if message_text in message_text:
                             send_message(sender_id, get_p(message_text))
+                        if 'mse' in message_text:
+                            send_message(sender_id, get_adu())
                         else:
                             send_message(sender_id, "Medeelel oldsongui")
 
